@@ -35,7 +35,6 @@
 (defvar current-user
       (getenv
        (if (equal system-type 'windows-nt) "USERNAME" "USER")))
-
 (message "Prelude is powering up... Be patient, Master %s!" current-user)
 
 (when (version< emacs-version "24.1")
@@ -43,6 +42,10 @@
 
 (defvar prelude-dir (file-name-directory load-file-name)
   "The root dir of the Emacs Prelude distribution.")
+(defvar cedet-dir (expand-file-name "cedet" prelude-dir)
+  "The home of Collection of Emacs Development Environment Tools")
+(defvar cedet-contrib-dir (expand-file-name "contrib" cedet-dir)
+  "Different contributed tools what work with CEDET")
 (defvar prelude-core-dir (expand-file-name "core" prelude-dir)
   "The home of Prelude's core functionality.")
 (defvar prelude-modules-dir (expand-file-name  "modules" prelude-dir)
@@ -59,6 +62,15 @@ by Prelude.")
   "This folder stores all the automatically generated save/history-files.")
 (defvar prelude-modules-file (expand-file-name "prelude-modules.el" prelude-dir)
   "This files contains a list of modules that will be loaded by Prelude.")
+(defvar cedet-devel-file (expand-file-name "cedet-devel-load.el" cedet-dir)
+  "This file is for using the CEDET from the CEDET standalone bzr repository")
+(defvar cedet-contrib-file (expand-file-name "cedet-contrib-load.el" cedet-contrib-dir)
+  "Initialize CEDET's contributed libraries for all supported conditions")
+
+(when (file-exists-p cedet-devel-file)
+  (load cedet-devel-file))
+(when (file-exists-p cedet-contrib-file)
+  (load cedet-contrib-file))
 
 (unless (file-exists-p prelude-savefile-dir)
   (make-directory prelude-savefile-dir))

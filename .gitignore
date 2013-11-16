@@ -19,3 +19,6 @@ savefile/
 projectile-bookmarks.eld
 session*
 .cask
+
+cedet/
+personal/
