@@ -94,6 +94,7 @@ by Prelude.")
 ;; reduce the frequency of garbage collection by making it happen on
 ;; each 50MB of allocated data (the default is on every 0.76MB)
 (setq gc-cons-threshold 50000000)
+(setq prelude-whitespace nil)
 
 ;; the core stuff
 (require 'prelude-packages)
@@ -113,6 +114,9 @@ by Prelude.")
 
 ;; config changes made through the customize UI will be store here
 (setq custom-file (expand-file-name "custom.el" prelude-personal-dir))
+
+(prelude-require-packages '(auto-complete ecb yasnippet haxe-mode
+                                          actionscript-mode magit))
 
 ;; load the personal settings (this includes `custom-file')
 (when (file-exists-p prelude-personal-dir)

@@ -21,7 +21,7 @@
 (add-to-list 'semantic-default-submodes 'global-semantic-highlight-edits-mode)
 
 (semantic-mode t)
-
+(semantic-load-enable-excessive-code-helpers)
 ;;; Preprocessing Cocos2D-x source code for using by CEDET
 ;;
 ;;
