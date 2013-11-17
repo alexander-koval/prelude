@@ -1,16 +1,16 @@
-;;; rumble.el --- Configuration for Rumble project
+;;; cocos2dx.el --- Configuration for Rumble project
 ;;; Commentary:
 ;; Configuration for Rumble project
 ;;; Code:
 (require 'ede/cpp-root)
 
-(defvar project-dir "~/Workspace/C++/Cocos2dx/Rumble")
+(defvar project-dir "")
 (defvar cocos2dx-dir "/opt/cocos2d-x/cocos2dx")
 (defvar cocosdenshion-dir "/opt/cocos2d-x/CocosDenshion")
 (defvar extensions-dir "/opt/cocos2d-x/extensions")
 
-(ede-cpp-root-project "Rumble"
-                      :name "Rumble"
+(ede-cpp-root-project ""
+                      :name ""
                       :version "0.1"
                       :file (concat project-dir "/README.md")
                       :include-path '("/"
@@ -39,14 +39,13 @@
                                              ,(concat cocos2dx-dir "/extensions/"))
                       :targets
                       (list
-                       (ede-cpp-root-target "rumble-linux"
-                                            :name "rumble-linux"
+                       (ede-cpp-root-target ""
+                                            :name ""
                                             :path ""
                                             :source '("Classes/AppDelegate.cpp"
-                                                      "Classes/GameScreen.cpp"
                                                       "linux/main.cpp")
                                             :versionsource '("Classes/AppDelegnate.h"
-                                                             "Classes/GameScreen.h")))
+                                                             )))
                       :spp-table '(("CC_DLL" . "")
                                    ("EXPORT_DLL" . "")
                                    ("DEBUG" . 1)
@@ -59,8 +58,6 @@
                                     ,(concat cocos2dx-dir
                                              "/platform/CCPlatformConfig.h"))
                       :compile-command (concat "make -C " project-dir "proj.linux/"))
-;; :spp-files '("/opt/cocos2d-x/cocos2dx/platform/linux/CCPlatformDefine.h"
-;;              "/opt/cocos2d-x/cocos2dx/platform/CCPlatformMacros.h"))
 
 (provide 'rumble)
-;;; rumble.el ends here
+;;; cocos2dx.el ends here

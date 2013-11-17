@@ -22,6 +22,9 @@
 
 (semantic-mode t)
 (semantic-load-enable-excessive-code-helpers)
+;;(semantic-load-enable-semantic-debugging-helpers)
+(when (cedet-ectag-version-check)
+  (semantic-load-enable-primary-exuberent-ctags-support))
 ;;; Preprocessing Cocos2D-x source code for using by CEDET
 ;;
 ;;
@@ -31,6 +34,7 @@
 (semantic-add-system-include cocos2dx-dir 'c++-mode)
 (semantic-add-system-include (concat cocos2dx-dir "/include") 'c++-mode)
 (semantic-add-system-include (concat cocos2dx-dir "/cocoa") 'c++-mode)
+;;(semantic-add-system-include (concat cocos2dx-dir "/tilemap_parallax_nodes") 'c++-mode)
 (semantic-add-system-include (concat cocos2dx-dir "/kazmath/include") 'c++-mode)
 (semantic-add-system-include (concat cocos2dx-dir "/platform") 'c++-mode)
 (semantic-add-system-include (concat cocos2dx-dir "/platform/linux") 'c++-mode)
@@ -54,6 +58,8 @@
              (concat cocos2dx-dir "/platform/linux/CCPlatformDefine.h"))
 (add-to-list 'semantic-lex-c-preprocessor-symbol-file
              (concat cocos2dx-dir "/platform/CCPlatformMacros.h"))
+(add-to-list 'semantic-lex-c-preprocessor-symbol-file
+             (concat cocos2dx-dir "/platform/CCPlaformConfig.h"))
 
 ;;; Preprocessing Qt4 source code for using by CEDET
 ;;
