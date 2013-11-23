@@ -82,15 +82,15 @@
 ;;; Preprocessing Qt4 source code for using by CEDET
 ;;
 ;;
-(defvar qt4-base-dir "/usr/include/qt4")
-(semantic-add-system-include qt4-base-dir 'c++-mode)
-(add-to-list 'auto-mode-alist (cons qt4-base-dir 'c++-mode))
-(add-to-list 'semantic-lex-c-preprocessor-symbol-file
-             (concat qt4-base-dir "/Qt/qconfig.h"))
-(add-to-list 'semantic-lex-c-preprocessor-symbol-file
-             (concat qt4-base-dir "/Qt/qconfig-dist.h"))
-(add-to-list 'semantic-lex-c-preprocessor-symbol-file
-             (concat qt4-base-dir "/Qt/qglobal.h"))
+;; (defvar qt4-base-dir "/usr/include/qt4")
+;; (semantic-add-system-include qt4-base-dir 'c++-mode)
+;; (add-to-list 'auto-mode-alist (cons qt4-base-dir 'c++-mode))
+;; (add-to-list 'semantic-lex-c-preprocessor-symbol-file
+;;              (concat qt4-base-dir "/Qt/qconfig.h"))
+;; (add-to-list 'semantic-lex-c-preprocessor-symbol-file
+;;              (concat qt4-base-dir "/Qt/qconfig-dist.h"))
+;; (add-to-list 'semantic-lex-c-preprocessor-symbol-file
+;;              (concat qt4-base-dir "/Qt/qglobal.h"))
 
 (provide 'init-semantic-mode)
 ;;; init-semantic-mode.el ends here

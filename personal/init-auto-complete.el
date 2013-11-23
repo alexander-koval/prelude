@@ -125,7 +125,7 @@
 ;; Enables comnicompletion with `c-mode-common'.
 (add-hook 'c-mode-common-hook
           '(lambda ()
-             (add-to-list 'ac-sources 'ac-source-etags)
+;;             (add-to-list 'ac-sources 'ac-source-etags)
              (local-set-key "\C-xt" 'eassist-switch-h-cpp)
              (local-set-key "\C-ce" 'eassist-list-methods)
              (local-set-key "\C-c\C-r" 'semantic-symref))

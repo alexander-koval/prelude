@@ -60,7 +60,7 @@
                                              "/platform/CCPlatformMacros.h")
                                     ,(concat cocos2dx-dir
                                              "/platform/CCPlatformConfig.h"))
-                      :compile-command (concat "make -C " project-dir "proj.linux/"))
+                      :compile-command (concat "make -C " project-dir "/proj.linux/"))
 ;; :spp-files '("/opt/cocos2d-x/cocos2dx/platform/linux/CCPlatformDefine.h"
 ;;              "/opt/cocos2d-x/cocos2dx/platform/CCPlatformMacros.h"))
 (custom-set-variables
