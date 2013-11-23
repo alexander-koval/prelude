@@ -3,8 +3,9 @@
 ;; Configuration for initialize my custom ede projects
 ;;; Code:
 (require 'semantic/bovine/c)
-(require 'semantic/bovine/clang)
+(require 'semantic/db-javap)
 (require 'semantic/ia)
+(require 'semantic/bovine/clang)
 
 (add-to-list 'semantic-default-submodes 'global-semanticdb-minor-mode)
 (add-to-list 'semantic-default-submodes 'global-semantic-mru-bookmark-mode)
@@ -20,6 +21,8 @@
 (add-to-list 'semantic-default-submodes 'global-semantic-show-parser-state-mode)
 (add-to-list 'semantic-default-submodes 'global-semantic-highlight-edits-mode)
 
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+
 (semantic-mode t)
 (semantic-load-enable-excessive-code-helpers)
 ;;(semantic-load-enable-semantic-debugging-helpers)
@@ -28,9 +31,10 @@
 ;;; Preprocessing Cocos2D-x source code for using by CEDET
 ;;
 ;;
-(defvar cocos2dx-dir "/opt/cocos2d-x/cocos2dx")
-(defvar cocosdenshion-dir "/opt/cocos2d-x/CocosDenshion")
-(defvar extensions-dir "/opt/cocos2d-x/extensions")
+(defvar cocos2dx-dir (concat (getenv "COCOS_ROOT") "cocos2dx"))
+(defvar cocosdenshion-dir (concat (getenv "COCOS_ROOT") "CocosDenshion"))
+(defvar extensions-dir (concat (getenv "COCOS_ROOT") "extensions"))
+
 (semantic-add-system-include cocos2dx-dir 'c++-mode)
 (semantic-add-system-include (concat cocos2dx-dir "/include") 'c++-mode)
 (semantic-add-system-include (concat cocos2dx-dir "/cocoa") 'c++-mode)
@@ -60,6 +64,20 @@
              (concat cocos2dx-dir "/platform/CCPlatformMacros.h"))
 (add-to-list 'semantic-lex-c-preprocessor-symbol-file
              (concat cocos2dx-dir "/platform/CCPlaformConfig.h"))
+(add-to-list 'semantic-lex-c-preprocessor-symbol-file
+             (concat cocos2dx-dir "/include/CCEventType.h"))
+(add-to-list 'semantic-lex-c-preprocessor-symbol-file
+             (concat cocos2dx-dir "/include/CCProtocols.h"))
+(add-to-list 'semantic-lex-c-preprocessor-symbol-file
+             (concat cocos2dx-dir "/include/ccConfig.h"))
+(add-to-list 'semantic-lex-c-preprocessor-symbol-file
+             (concat cocos2dx-dir "/include/ccMacros.h"))
+(add-to-list 'semantic-lex-c-preprocessor-symbol-file
+             (concat cocos2dx-dir "/include/ccTypeInfo.h"))
+(add-to-list 'semantic-lex-c-preprocessor-symbol-file
+             (concat cocos2dx-dir "/include/ccTypes.h"))
+(add-to-list 'semantic-lex-c-preprocessor-symbol-file
+             (concat cocos2dx-dir "/include/cocos2d.h"))
 
 ;;; Preprocessing Qt4 source code for using by CEDET
 ;;

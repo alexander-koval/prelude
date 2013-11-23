@@ -57,7 +57,7 @@
  (defvar rumble-file (expand-file-name "rumble.el" ede-projects-dir)
   "This is configuration file for Rumble Project.")
 (load rumble-file)
-
+;;(load "~/Workspace/Java/Homework_9/budam-voice-getter/budam-voice-getter.el")
 
 (provide 'init-ede-project)
 ;;; init-ede-project.el ends here
